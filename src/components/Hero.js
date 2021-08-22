@@ -7,25 +7,33 @@ import { Colors } from "../data/Variables";
 const useStyles = makeStyles((theme) => {
   return {
     heroContainer: {
-      height: "600px",
+      height: "90vh",
       width: "100%",
       display: "flex",
       flexDirection: "column",
       borderRadius: "0.5rem",
       background: `${Colors.white}`,
-      background: `linear-gradient(to right bottom, rgba(255,255,255, 0.4), rgba(255,255,255,0.1))`,
-      border: `1px solid ${Colors.white}`,
-      backdropFilter: `blur(50rem)`,
+      background: `linear-gradient(to right bottom, rgba(255,255,255, 0.2), rgba(255,255,255,0.1))`,
+      backdropFilter: `blur(0.5rem)`,
     },
     introTextContainer: {
       flexGrow: "1",
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
-      textAlign: "center",
-      padding: `0 2rem`,
+      textAlign: "left",
+      padding: `0 6rem`,
       "& h1": {
-        marginBottom: "2rem",
+        fontSize: "2.5rem",
+        marginBottom: "4rem",
+        fontWeight: "700",
+        textShadow: `1px 1px ${Colors.primary}`,
+        borderLeft: `3px solid ${Colors.white}`,
+        paddingLeft: `2rem`,
+        "& span": {
+          color: `${Colors.primary}`,
+          textShadow: `1px 1px ${Colors.black}`,
+        },
       },
     },
     btnContainer: {
@@ -43,8 +51,8 @@ const useStyles = makeStyles((theme) => {
       borderRadius: "0.6rem",
       position: "relative",
       transition: `all 0.5s ease-in-out`,
-      border: `1px solid ${Colors.primary}`,
-      zIndex: "1",
+      fontWeight: "700",
+      background: `${Colors.transparent}`,
       "&:first-child": {
         marginRight: "3rem",
       },
@@ -57,8 +65,13 @@ const useStyles = makeStyles((theme) => {
       border: "none",
       zIndex: "-1",
       transition: `all 0.5s ease-in-out`,
-      backgroundImage: `linear-gradient(to left, ${Colors.transparent} 50%,${Colors.primary} 0)`,
       backgroundSize: `200% 200%`,
+    },
+    btnBg1: {
+      backgroundImage: `linear-gradient(to left, ${Colors.transparent} 50%,${Colors.primary} 0)`,
+    },
+    btnBg2: {
+      backgroundImage: `linear-gradient(to left, ${Colors.transparent} 50%,${Colors.lightGreen} 0)`,
     },
   };
 });
@@ -79,7 +92,7 @@ const Hero = () => {
       color: btnHovered ? `${Colors.white}` : `${Colors.primary}`,
     },
     btn2: {
-      color: btnHovered2 ? `${Colors.white}` : `${Colors.primary}`,
+      color: btnHovered2 ? `${Colors.black}` : `${Colors.primary}`,
     },
   };
 
@@ -88,9 +101,11 @@ const Hero = () => {
       <Navbar />
       <Box className={classes.introTextContainer}>
         <h1>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus
-          pariatur dolorum doloribus nisi nihil quaerat, exercitationem sequi
-          porro sapiente veniam?
+          <span className={classes.highlight}>
+            I'm a bespoke web developer{" "}
+          </span>
+          looking to facilitate the creation of modern and aesthetically
+          pleasing websites.
         </h1>
 
         <div className={classes.btnContainer}>
@@ -106,7 +121,10 @@ const Hero = () => {
             }}
           >
             See My Work
-            <span style={style.hover} className={classes.btnOverlay}></span>
+            <span
+              style={style.hover}
+              className={`${classes.btnOverlay} ${classes.btnBg1}`}
+            ></span>
           </Link>
 
           <Link
@@ -121,7 +139,10 @@ const Hero = () => {
             }}
           >
             Contact Me
-            <span style={style.hover2} className={classes.btnOverlay}></span>
+            <span
+              style={style.hover2}
+              className={`${classes.btnOverlay} ${classes.btnBg2}`}
+            ></span>
           </Link>
         </div>
       </Box>

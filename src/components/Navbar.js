@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => {
       fontSize: "1rem",
       textTransform: "uppercase",
       fontWeight: "900",
-      marginLeft: "0.5rem",
+      marginLeft: "0.8rem",
       color: `${Colors.primary}`,
     },
     bar: {
