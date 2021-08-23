@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   createTheme,
   ThemeProvider,
@@ -8,9 +8,8 @@ import {
 import { Colors } from "./data/Variables";
 import GlobalStyle from "./globalStyles";
 import Hero from "./components/Hero";
-import styled from "styled-components";
-import Testing from "./components/Testing";
-import Separator from "./components/Separator";
+import AboutMe from "./components/AboutMe";
+import DrawerMenu from "./components/DrawerMenu";
 
 const theme = createTheme({
   typography: {
@@ -31,90 +30,49 @@ const theme = createTheme({
   },
 });
 
-const Body = styled.div`
-  height: 100%;
-  width: 100%;
-  background-image: linear-gradient(
-    to right top,
-    #d16ba5,
-    #c777b9,
-    #ba83ca,
-    #aa8fd8,
-    #9a9ae1,
-    #8aa7ec,
-    #79b3f4,
-    #69bff8,
-    #52cffe,
-    #41dfff,
-    #46eefa,
-    #5ffbf1
-  );
-  padding: 2rem;
-  position: relative;
-  z-index: 0;
-`;
-
 const useStyles = makeStyles((theme) => {
   return {
-    circle: {
-      position: "absolute",
-      zIndex: "-1",
-      borderRadius: "50%",
-    },
-    circle1: {
-      right: "8%",
-      top: "35%",
-      height: "50px",
-      width: "50px",
-      background: `${Colors.primary}`,
-    },
-    circle2: {
-      right: "40%",
-      top: "15%",
-      height: "70px",
-      width: "70px",
-      background: `${Colors.lightGreen}`,
-    },
-    circle3: {
-      left: "40%",
-      top: "25%",
-      height: "100px",
-      width: "100px",
-      background: `${Colors.primary}`,
-    },
-    circle4: {
-      left: "10%",
-      top: "38%",
-      height: "70px",
-      width: "70px",
-      background: `${Colors.primary}`,
-    },
-    circle5: {
-      left: "15%",
-      top: "10%",
-      height: "70px",
-      width: "70px",
-      background: `${Colors.lightGreen}`,
+    body: {
+      height: "100%",
+      width: "100%",
+      backgroundImage: `linear-gradient(
+        to right top,
+        #d16ba5,
+        #c777b9,
+        #ba83ca,
+        #aa8fd8,
+        #9a9ae1,
+        #8aa7ec,
+        #79b3f4,
+        #69bff8,
+        #52cffe,
+        #41dfff,
+        #46eefa,
+        #5ffbf1
+      )`,
+      padding: "2rem",
+      position: "relative",
+      zIndex: "0",
+      [theme.breakpoints.down("xs")]: {
+        padding: `1rem`,
+      },
     },
   };
 });
 
 function App({ props }) {
   const classes = useStyles();
+  const [openDrawer, setOpenDrawer] = useState(false);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <GlobalStyle />
-      <Body>
-        <div className={`${classes.circle} ${classes.circle1}`}></div>
-        <div className={`${classes.circle} ${classes.circle2}`}></div>
-        <div className={`${classes.circle} ${classes.circle3}`}></div>
-        <div className={`${classes.circle} ${classes.circle4}`}></div>
-        <div className={`${classes.circle} ${classes.circle5}`}></div>
-        <Hero />
-        <Separator />
-        <Testing />
-      </Body>
+      <section className={classes.body}>
+        <Hero openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
+        <DrawerMenu openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
+        <AboutMe />
+      </section>
     </ThemeProvider>
   );
 }

@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) => {
       background: `${Colors.white}`,
       background: `linear-gradient(to right bottom, rgba(255,255,255, 0.2), rgba(255,255,255,0.1))`,
       backdropFilter: `blur(0.5rem)`,
+      marginBottom: "5rem",
     },
     introTextContainer: {
       flexGrow: "1",
@@ -23,13 +24,23 @@ const useStyles = makeStyles((theme) => {
       justifyContent: "center",
       textAlign: "left",
       padding: `0 6rem`,
+      [theme.breakpoints.down("xs")]: {
+        padding: `0 1rem`,
+      },
       "& h1": {
-        fontSize: "2.5rem",
+        fontSize: "3.2rem",
         marginBottom: "4rem",
         fontWeight: "700",
         textShadow: `1px 1px ${Colors.primary}`,
         borderLeft: `3px solid ${Colors.white}`,
         paddingLeft: `2rem`,
+        [theme.breakpoints.down("sm")]: {
+          fontSize: "2rem",
+        },
+        [theme.breakpoints.down("xs")]: {
+          fontSize: "1.2rem",
+          paddingLeft: "0.5rem",
+        },
         "& span": {
           color: `${Colors.primary}`,
           textShadow: `1px 1px ${Colors.black}`,
@@ -39,6 +50,9 @@ const useStyles = makeStyles((theme) => {
     btnContainer: {
       display: "flex",
       justifyContent: "center",
+      [theme.breakpoints.down("xs")]: {
+        flexDirection: "column",
+      },
     },
     btn: {
       display: "flex",
@@ -54,7 +68,13 @@ const useStyles = makeStyles((theme) => {
       fontWeight: "700",
       background: `${Colors.transparent}`,
       "&:first-child": {
-        marginRight: "3rem",
+        margin: `0 3rem 0 0`,
+        [theme.breakpoints.down("xs")]: {
+          margin: `0 0 1.5rem 0`,
+        },
+      },
+      [theme.breakpoints.down("xs")]: {
+        width: "100%",
       },
     },
     btnOverlay: {
@@ -68,15 +88,15 @@ const useStyles = makeStyles((theme) => {
       backgroundSize: `200% 200%`,
     },
     btnBg1: {
-      backgroundImage: `linear-gradient(to left, ${Colors.transparent} 50%,${Colors.primary} 0)`,
+      backgroundImage: `linear-gradient(to left, ${Colors.glass} 50%,${Colors.primary} 0)`,
     },
     btnBg2: {
-      backgroundImage: `linear-gradient(to left, ${Colors.transparent} 50%,${Colors.lightGreen} 0)`,
+      backgroundImage: `linear-gradient(to left, ${Colors.glass} 50%,${Colors.lightGreen} 0)`,
     },
   };
 });
 
-const Hero = () => {
+const Hero = (props) => {
   const classes = useStyles();
   const [btnHovered, setBtnHovered] = useState(false);
   const [btnHovered2, setBtnHovered2] = useState(false);
@@ -98,7 +118,10 @@ const Hero = () => {
 
   return (
     <Box className={classes.heroContainer}>
-      <Navbar />
+      <Navbar
+        openDrawer={props.openDrawer}
+        setOpenDrawer={props.setOpenDrawer}
+      />
       <Box className={classes.introTextContainer}>
         <h1>
           <span className={classes.highlight}>
