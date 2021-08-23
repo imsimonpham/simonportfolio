@@ -8,12 +8,13 @@ import ava1 from "../img/ava1.jpg";
 const useStyles = makeStyles((theme) => {
   return {
     container: {
-      height: "90vh",
+      height: "1000px",
       width: "100%",
       display: "flex",
       flexDirection: "column",
       borderRadius: "0.5rem",
       justifyContent: "center",
+      alignItems: "center",
       background: `linear-gradient(to right bottom, rgba(0,0,0, 0.3), rgba(0,0,0,0.2))`,
       backdropFilter: `blur(4rem)`,
       [theme.breakpoints.down("sm")]: {
@@ -21,25 +22,35 @@ const useStyles = makeStyles((theme) => {
       },
     },
     aboutContentWrapper: {
+      flexBasis: "70%",
       display: "flex",
-      border: `1px solid blue`,
+      justifyContent: "space-around",
       margin: `0 0 2rem 0`,
       [theme.breakpoints.down("sm")]: {
         flexDirection: "column",
         padding: `1rem 1rem`,
       },
+
+      [theme.breakpoints.down("xs")]: {
+        flexDirection: "column",
+        padding: `1rem 1rem`,
+        width: "100%",
+      },
     },
     title: {
       margin: `0 0 2rem 0`,
-      border: `1px solid red`,
       fontSize: "3.5rem",
       color: `${Colors.white}`,
       textShadow: `2px 2px ${Colors.primary}`,
-
+      flexBasis: "10%",
       "& span": {
         color: `${Colors.primary}`,
       },
-      [theme.breakpoints.down("sm")]: {},
+      [theme.breakpoints.down("sm")]: { marginTop: "1.2rem", fontSize: "3rem" },
+      [theme.breakpoints.down("xs")]: {
+        marginTop: "2rem",
+        fontSize: "1.5rem",
+      },
     },
     imgSection: {
       flexBasis: "40%",
@@ -62,6 +73,9 @@ const useStyles = makeStyles((theme) => {
       [theme.breakpoints.down("sm")]: {
         width: "100%",
         marginBottom: "1.5rem",
+      },
+      [theme.breakpoints.down("xs")]: {
+        width: "100%",
       },
     },
     basicInfo: {
@@ -91,6 +105,10 @@ const useStyles = makeStyles((theme) => {
         objectFit: "cover",
         borderRadius: "50%",
       },
+      [theme.breakpoints.down("xs")]: {
+        height: "200px",
+        width: "200px",
+      },
     },
     infoSection: {
       flexBasis: "55%",
@@ -100,7 +118,6 @@ const useStyles = makeStyles((theme) => {
       flexDirection: "column",
     },
     infoContainer: {
-      // border: `1px solid green`,
       height: "auto",
       width: "90%",
       marginBottom: "2rem",
@@ -110,7 +127,6 @@ const useStyles = makeStyles((theme) => {
       },
     },
     skillContainer: {
-      // border: `1px solid orange`,
       height: "auto",
       width: "90%",
       marginBottom: "2rem",
@@ -118,23 +134,35 @@ const useStyles = makeStyles((theme) => {
         fontSize: "2.3rem",
         color: `${Colors.white}`,
         textShadow: `2px 2px ${Colors.primary}`,
+        margin: `0 0 1rem 0`,
+        [theme.breakpoints.down("sm")]: {
+          fontSize: "2rem",
+        },
       },
     },
     skillCat: {
       display: "flex",
+      height: "auto",
       alignItems: "center",
-      // border: `1px solid purple`,
+      flexWrap: "wrap",
       marginBottom: "1rem",
+      [theme.breakpoints.down("xs")]: {
+        flexDirection: "column",
+        alignItems: "flex-start",
+      },
       "& h4": {
-        // border: `1px solid white`,
-        margin: `0`,
+        margin: `0 1rem 0 0`,
+        [theme.breakpoints.down("xs")]: {
+          margin: `0 0 1rem 0`,
+        },
       },
       "& ul": {
         listStyle: "none",
         display: "flex",
         margin: `0`,
+        flexWrap: "wrap",
+        padding: "0",
         "& li": {
-          border: `1px solid ${Colors.white}`,
           borderRadius: "1rem",
           padding: `0.1rem 0.5rem`,
           display: "flex",
@@ -142,6 +170,9 @@ const useStyles = makeStyles((theme) => {
           marginRight: "0.6rem",
           fontWeight: "700",
           background: `linear-gradient(to right bottom, rgba(255,255,255, 0.6), rgba(255,255,255,0.5))`,
+          [theme.breakpoints.down("xs")]: {
+            marginBottom: "1rem",
+          },
         },
       },
     },

@@ -7,7 +7,7 @@ import { Colors } from "../data/Variables";
 const useStyles = makeStyles((theme) => {
   return {
     heroContainer: {
-      height: "90vh",
+      height: "1000px",
       width: "100%",
       display: "flex",
       flexDirection: "column",
@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme) => {
       background: `linear-gradient(to right bottom, rgba(255,255,255, 0.2), rgba(255,255,255,0.1))`,
       backdropFilter: `blur(0.5rem)`,
       marginBottom: "5rem",
+      [theme.breakpoints.down("sm")]: {
+        height: "auto",
+      },
     },
     introTextContainer: {
       flexGrow: "1",
@@ -25,7 +28,7 @@ const useStyles = makeStyles((theme) => {
       textAlign: "left",
       padding: `0 6rem`,
       [theme.breakpoints.down("xs")]: {
-        padding: `0 1rem`,
+        padding: `4rem 1rem`,
       },
       "& h1": {
         fontSize: "3.2rem",
