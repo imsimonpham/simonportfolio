@@ -14,8 +14,9 @@ const useStyles = makeStyles((theme) => {
       borderRadius: "0.5rem",
       background: `${Colors.white}`,
       background: `linear-gradient(to right bottom, rgba(255,255,255, 0.2), rgba(255,255,255,0.1))`,
-      backdropFilter: `blur(0.5rem)`,
+      backdropFilter: `blur(0.2rem)`,
       marginBottom: "5rem",
+      maxWidth: "1500px",
     },
     introTextContainer: {
       flexGrow: "1",
@@ -132,8 +133,8 @@ const Hero = (props) => {
         </h1>
 
         <div className={classes.btnContainer}>
-          <Link
-            to="/"
+          <a
+            href="#projects"
             className={classes.btn}
             style={style.btn}
             onMouseEnter={() => {
@@ -148,10 +149,10 @@ const Hero = (props) => {
               style={style.hover}
               className={`${classes.btnOverlay} ${classes.btnBg1}`}
             ></span>
-          </Link>
+          </a>
 
-          <Link
-            to="/"
+          <a
+            href="#contact"
             className={classes.btn}
             style={style.btn2}
             onMouseEnter={() => {
@@ -166,7 +167,7 @@ const Hero = (props) => {
               style={style.hover2}
               className={`${classes.btnOverlay} ${classes.btnBg2}`}
             ></span>
-          </Link>
+          </a>
         </div>
       </Box>
     </Box>

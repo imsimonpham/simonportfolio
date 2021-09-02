@@ -5,28 +5,27 @@ import {
   CssBaseline,
   makeStyles,
 } from "@material-ui/core";
-import { Colors } from "./data/Variables";
 import GlobalStyle from "./globalStyles";
 import Hero from "./components/Hero";
 import AboutMe from "./components/AboutMe";
 import DrawerMenu from "./components/DrawerMenu";
+import Projects from "./components/Projects";
+import ParticleBackground from "./components/ParticleBackground";
+import Contact from "./components/Contact";
+import { Colors } from "./data/Variables";
+import Footer from "./components/Footer";
 
 const theme = createTheme({
+  palette: {
+    secondary: {
+      main: `${Colors.lightGreen}`,
+    },
+  },
   typography: {
     fontFamily: ["Poppins", "sans-serif"].join(","),
   },
   shape: {
     borderRadius: 0,
-  },
-  overrides: {
-    // Style sheet name
-    MuiTouchRipple: {
-      // Name of the rule
-      child: {
-        // Some CSS
-        // backgroundColor: `${Colors.red}`,
-      },
-    },
   },
 });
 
@@ -51,11 +50,14 @@ const useStyles = makeStyles((theme) => {
         #5ffbf1
       )`,
       padding: "2rem",
-      position: "relative",
       zIndex: "0",
       [theme.breakpoints.down("xs")]: {
         padding: `1rem`,
       },
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      position: "relative",
     },
   };
 });
@@ -69,9 +71,13 @@ function App({ props }) {
       <CssBaseline />
       <GlobalStyle />
       <section className={classes.body}>
+        <ParticleBackground />
         <Hero openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
         <DrawerMenu openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
         <AboutMe />
+        <Projects />
+        <Contact />
+        <Footer />
       </section>
     </ThemeProvider>
   );

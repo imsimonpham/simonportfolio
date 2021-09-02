@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Box, makeStyles } from "@material-ui/core";
-import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
 import { Colors } from "../data/Variables";
 import ava1 from "../img/ava1.jpg";
@@ -16,10 +15,12 @@ const useStyles = makeStyles((theme) => {
       justifyContent: "center",
       alignItems: "center",
       background: `linear-gradient(to right bottom, rgba(0,0,0, 0.3), rgba(0,0,0,0.2))`,
-      backdropFilter: `blur(4rem)`,
+      backdropFilter: `blur(0.2rem)`,
       [theme.breakpoints.down("sm")]: {
         height: "auto",
       },
+      marginBottom: "5rem",
+      maxWidth: "1500px",
     },
     aboutContentWrapper: {
       flexBasis: "70%",
@@ -45,6 +46,7 @@ const useStyles = makeStyles((theme) => {
       flexBasis: "10%",
       "& span": {
         color: `${Colors.primary}`,
+        textShadow: "none",
       },
       [theme.breakpoints.down("sm")]: { marginTop: "1.2rem", fontSize: "3rem" },
       [theme.breakpoints.down("xs")]: {
@@ -150,6 +152,7 @@ const useStyles = makeStyles((theme) => {
         flexDirection: "column",
         alignItems: "flex-start",
       },
+
       "& h4": {
         margin: `0 1rem 0 0`,
         [theme.breakpoints.down("xs")]: {
@@ -162,6 +165,7 @@ const useStyles = makeStyles((theme) => {
         margin: `0`,
         flexWrap: "wrap",
         padding: "0",
+
         "& li": {
           borderRadius: "1rem",
           padding: `0.1rem 0.5rem`,
@@ -189,6 +193,8 @@ const useStyles = makeStyles((theme) => {
       transition: `all 0.5s ease-in-out`,
       fontWeight: "700",
       background: `${Colors.transparent}`,
+      outline: "none",
+      border: "none",
       "&:first-child": {
         margin: `0 3rem 0 0`,
         [theme.breakpoints.down("xs")]: {
@@ -198,6 +204,7 @@ const useStyles = makeStyles((theme) => {
       [theme.breakpoints.down("xs")]: {
         width: "100%",
       },
+      cursor: "pointer",
     },
     btnOverlay: {
       position: "absolute",
@@ -276,19 +283,20 @@ const AboutMe = () => {
                 <li>SASS</li>
                 <li>CSS3</li>
                 <li>HTML5</li>
+                <li>C</li>
               </ul>
             </div>
             <div className={classes.skillCat}>
               <h4>Frontend: </h4>
               <ul>
                 <li>React</li>
-                <li>Bootstrap</li>
+                <li>React-Bootstrap</li>
                 <li>Material-UI</li>
                 <li>GSAP</li>
               </ul>
             </div>
             <div className={classes.skillCat}>
-              <h4>Backend & Database: </h4>
+              <h4>Backend</h4>
               <ul>
                 <li>Node.js</li>
                 <li>Express</li>
@@ -296,9 +304,16 @@ const AboutMe = () => {
                 <li>Firebase</li>
               </ul>
             </div>
+            <div className={classes.skillCat}>
+              <h4>Other Tools: </h4>
+              <ul>
+                <li>Git</li>
+                <li>Github</li>
+                <li>Netlify</li>
+              </ul>
+            </div>
           </div>
-          <Link
-            to="/"
+          <button
             className={classes.btn}
             style={style.btn}
             onMouseEnter={() => {
@@ -313,7 +328,7 @@ const AboutMe = () => {
               style={style.hover}
               className={`${classes.btnOverlay} ${classes.btnBg1}`}
             ></span>
-          </Link>
+          </button>
         </div>
       </section>
     </Box>

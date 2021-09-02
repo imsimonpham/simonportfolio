@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, makeStyles, withStyles } from "@material-ui/core";
+import { Box, makeStyles } from "@material-ui/core";
 import { CgMenuLeft } from "react-icons/cg";
 import { IoShareSocial } from "react-icons/io5";
 import {

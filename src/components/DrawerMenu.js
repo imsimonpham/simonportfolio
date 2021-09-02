@@ -33,9 +33,7 @@ const useStyles = makeStyles((theme) => {
     },
     navLinks: {
       textDecoration: "none",
-      color: `${Colors.dark}`,
       marginBottom: "5rem",
-      textDecoration: "none",
       fontSize: "2rem",
       color: `${Colors.primary}`,
       "&:hover": {
