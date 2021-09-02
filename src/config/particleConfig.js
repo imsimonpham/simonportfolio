@@ -1,6 +1,7 @@
 import { Colors } from "../data/Variables";
 
 const particlesConfig = {
+  fps_limit: 30,
   particles: {
     number: {
       value: 150,
