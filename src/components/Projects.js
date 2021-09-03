@@ -135,6 +135,7 @@ const useStyles = makeStyles((theme) => {
       alignItems: "center",
       overflowY: "auto",
       padding: `5rem 0`,
+      overflowX: "hidden",
       [theme.breakpoints.down("sm")]: {
         width: "80%",
         height: "90%",
@@ -202,11 +203,18 @@ const useStyles = makeStyles((theme) => {
     techUsedWrapper: {
       display: "flex",
       alignItems: "center",
-      height: "50px",
+      height: "auto",
+
+      [theme.breakpoints.down("xs")]: {
+        flexDirection: "column",
+        alignItems: "flex-start",
+        "& h3": {
+          fontSize: "0.9rem",
+        },
+      },
     },
     techList: {
       display: "flex",
-
       height: "50px",
       alignItems: "center",
     },
@@ -214,7 +222,6 @@ const useStyles = makeStyles((theme) => {
       height: "30px",
       width: "30px",
       fill: `${Colors.react}`,
-      //   marginRight: "0.5rem",
     },
   };
 });

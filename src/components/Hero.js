@@ -1,8 +1,8 @@
 import { Box, makeStyles } from "@material-ui/core";
 import React, { useState } from "react";
 import Navbar from "./Navbar";
-import { Link } from "react-router-dom";
 import { Colors } from "../data/Variables";
+import Typewritter from "typewriter-effect";
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => {
         padding: `4rem 1rem`,
       },
       "& h1": {
-        fontSize: "3.2rem",
+        fontSize: "3rem",
         marginBottom: "4rem",
         fontWeight: "700",
         textShadow: `1px 1px ${Colors.primary}`,
@@ -42,12 +42,14 @@ const useStyles = makeStyles((theme) => {
           fontSize: "1.2rem",
           paddingLeft: "0.5rem",
         },
-        "& span": {
+        "& small": {
           color: `${Colors.primary}`,
           textShadow: `1px 1px ${Colors.black}`,
+          fontSize: "3.2rem",
         },
       },
     },
+    typewritterContainer: { display: "inline-block" },
     btnContainer: {
       display: "flex",
       justifyContent: "center",
@@ -115,21 +117,39 @@ const Hero = (props) => {
     btn2: {
       color: btnHovered2 ? `${Colors.black}` : `${Colors.primary}`,
     },
+    typewritter: {
+      display: "inline",
+    },
   };
 
   return (
-    <Box className={classes.heroContainer}>
+    <Box className={classes.heroContainer} id="home">
       <Navbar
         openDrawer={props.openDrawer}
         setOpenDrawer={props.setOpenDrawer}
       />
       <Box className={classes.introTextContainer}>
         <h1>
-          <span className={classes.highlight}>
-            I'm a bespoke web developer{" "}
-          </span>
-          looking to facilitate the creation of modern and aesthetically
-          pleasing websites.
+          Hello, World! I'm Simon, a Web Developer. I love building{" "}
+          <div className={classes.typewritterContainer}>
+            <Typewritter
+              options={{
+                delay: 80,
+              }}
+              onInit={(typewritter) => {
+                typewritter
+                  .typeString("websites")
+                  .pauseFor(700)
+                  .deleteAll()
+                  .typeString(
+                    `<small >aesthetically pleasing</small>` +
+                      ` websites with` +
+                      `<small > personality.</small>`
+                  )
+                  .start();
+              }}
+            />
+          </div>
         </h1>
 
         <div className={classes.btnContainer}>

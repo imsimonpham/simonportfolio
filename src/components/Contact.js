@@ -1,13 +1,7 @@
 import React, { useState } from "react";
-import {
-  Box,
-  makeStyles,
-  TextField,
-  withStyles,
-  TextareaAutosize,
-} from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { makeStyles, TextField, withStyles } from "@material-ui/core";
 import { Colors } from "../data/Variables";
+import emailjs from "emailjs-com";
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -77,7 +71,7 @@ const useStyles = makeStyles((theme) => {
       color: `${Colors.white}`,
       fontFamily: ["Poppins", "sans-serif"].join(","),
       fontSize: "0.9rem",
-      borderRadius: "0.5rem",
+      borderRadius: "0.6rem",
       "&::placeholder": {
         color: `${Colors.white}`,
         fontFamily: ["Poppins", "sans-serif"].join(","),
@@ -176,26 +170,69 @@ const Contact = () => {
       color: btnHovered ? `${Colors.white}` : `${Colors.primary}`,
     },
   };
+
+  const [submitted, setSubmitted] = useState(0);
+  const submissionAlert = () => {
+    setSubmitted(1);
+    setTimeout(() => {
+      setSubmitted(0);
+    }, 1500);
+  };
+
+  function sendEmail(e) {
+    e.preventDefault();
+    emailjs
+      .sendForm(
+        "service_s3tod1s",
+        "template_37g46zq",
+        e.target,
+        "user_shfC8ZhcVvEc913iJqVzf"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+    // submissionAlert();
+    e.target.reset();
+  }
   return (
-    <section className={classes.container}>
+    <section className={classes.container} id="contact">
       <h1 className={classes.title}>
         Contact Me<span>.</span>
       </h1>
-      <section className={classes.contactWrapper}>
-        <form className={classes.form} noValidate autoComplete="off">
+      <section
+        className={classes.contactWrapper}
+        onSubmit={(e) => {
+          sendEmail(e);
+        }}
+      >
+        <form className={classes.form} autoComplete="off">
           <CssTextField
             id="custom-css-standard-input"
             label="Name"
             className={classes.input}
             variant="filled"
+            name="name"
+            required
           />
           <CssTextField
             id="custom-css-standard-input"
             label="Email"
             className={classes.input}
             variant="filled"
+            name="email"
+            required
           />
-          <textarea className={classes.textArea} placeholder="Message" />
+          <textarea
+            className={classes.textArea}
+            placeholder="Message"
+            name="message"
+            required
+          />
           <button
             className={classes.btn}
             style={style.btn}
@@ -205,6 +242,7 @@ const Contact = () => {
             onMouseLeave={() => {
               setBtnHovered(false);
             }}
+            type="submit"
           >
             Send Message
             <span

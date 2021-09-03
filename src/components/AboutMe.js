@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Box, makeStyles } from "@material-ui/core";
-import { Link } from "react-router-dom";
 import { Colors } from "../data/Variables";
 import ava1 from "../img/ava1.jpg";
+import { TechStackData } from "../data/TechStackData";
+import resume from "../resume/SimonResume.pdf";
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -126,6 +127,8 @@ const useStyles = makeStyles((theme) => {
       color: `${Colors.white}`,
       "& p": {
         fontSize: "1rem",
+        color: `${Colors.black}`,
+        fontWeight: "600",
       },
     },
     skillContainer: {
@@ -235,7 +238,7 @@ const AboutMe = () => {
     },
   };
   return (
-    <Box className={classes.container}>
+    <Box className={classes.container} id="about">
       <h1 className={classes.title}>
         About Me<span>.</span>
       </h1>
@@ -261,59 +264,35 @@ const AboutMe = () => {
         <div className={classes.infoSection}>
           <div className={classes.infoContainer}>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Molestiae inventore beatae reiciendis amet aliquid itaque ex
-              doloremque. Ex non sit architecto nesciunt natus, corporis aut
-              quae impedit quia minus voluptate dolorum sed eligendi fuga
-              expedita maxime commodi tenetur esse distinctio. Nisi nemo sunt,
-              reiciendis numquam architecto perspiciatis tenetur a illo.
+              Hi, my name is Simon, and I'm a self-taught Web Developer. Over
+              the past year, coding has developed into a passion of mine,
+              specifically, in the field of web development. I have dedicated my
+              time to gaining proficiency in web technologies, especially
+              front-end ones.
             </p>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum
-              deleniti, debitis alias ipsum voluptatem harum soluta aliquid!
-              Debitis, dolores numquam.
+              Also, I consider myself a problem solver who seeks to bridge the
+              gap between business and technology.
             </p>
           </div>
           <div className={classes.skillContainer}>
             <h2>Skills</h2>
-            <div className={classes.skillCat}>
-              <h4>Languages: </h4>
-              <ul>
-                <li>Javascript</li>
-                <li>SASS</li>
-                <li>CSS3</li>
-                <li>HTML5</li>
-                <li>C</li>
-              </ul>
-            </div>
-            <div className={classes.skillCat}>
-              <h4>Frontend: </h4>
-              <ul>
-                <li>React</li>
-                <li>React-Bootstrap</li>
-                <li>Material-UI</li>
-                <li>GSAP</li>
-              </ul>
-            </div>
-            <div className={classes.skillCat}>
-              <h4>Backend</h4>
-              <ul>
-                <li>Node.js</li>
-                <li>Express</li>
-                <li>MongoDB</li>
-                <li>Firebase</li>
-              </ul>
-            </div>
-            <div className={classes.skillCat}>
-              <h4>Other Tools: </h4>
-              <ul>
-                <li>Git</li>
-                <li>Github</li>
-                <li>Netlify</li>
-              </ul>
-            </div>
+            {TechStackData.map((item, index) => {
+              return (
+                <div className={classes.skillCat} key={index}>
+                  <h4>{item.cat}: </h4>
+                  <ul>
+                    {item.techList.map((tech, index) => {
+                      return <li key={index}>{tech}</li>;
+                    })}
+                  </ul>
+                </div>
+              );
+            })}
           </div>
-          <button
+          <a
+            href={resume}
+            download="Simon's resume"
             className={classes.btn}
             style={style.btn}
             onMouseEnter={() => {
@@ -328,7 +307,7 @@ const AboutMe = () => {
               style={style.hover}
               className={`${classes.btnOverlay} ${classes.btnBg1}`}
             ></span>
-          </button>
+          </a>
         </div>
       </section>
     </Box>

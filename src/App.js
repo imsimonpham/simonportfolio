@@ -14,6 +14,7 @@ import ParticleBackground from "./components/ParticleBackground";
 import Contact from "./components/Contact";
 import { Colors } from "./data/Variables";
 import Footer from "./components/Footer";
+import BackToTopRocket from "./components/BackToTopRocket";
 
 const theme = createTheme({
   palette: {
@@ -78,6 +79,7 @@ function App({ props }) {
         <Projects />
         <Contact />
         <Footer />
+        <BackToTopRocket />
       </section>
     </ThemeProvider>
   );

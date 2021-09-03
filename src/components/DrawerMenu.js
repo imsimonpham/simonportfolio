@@ -1,6 +1,5 @@
 import React from "react";
 import { Drawer, List, Box, makeStyles } from "@material-ui/core";
-import { Link } from "react-router-dom";
 import { Colors } from "../data/Variables";
 import { MenuData } from "../data/MenuData";
 import { AiOutlineClose } from "react-icons/ai";
@@ -81,9 +80,16 @@ const DrawerMenu = (props) => {
         <Box className={classes.navLinksContainer}>
           {MenuData.map((item, index) => {
             return (
-              <Link className={classes.navLinks} key={index}>
+              <a
+                href={item.link}
+                className={classes.navLinks}
+                key={index}
+                onClick={() => {
+                  props.setOpenDrawer(false);
+                }}
+              >
                 {item.title}
-              </Link>
+              </a>
             );
           })}
         </Box>
