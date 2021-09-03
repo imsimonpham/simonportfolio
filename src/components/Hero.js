@@ -46,6 +46,13 @@ const useStyles = makeStyles((theme) => {
           color: `${Colors.primary}`,
           textShadow: `1px 1px ${Colors.black}`,
           fontSize: "3.2rem",
+          [theme.breakpoints.down("sm")]: {
+            fontSize: "2rem",
+          },
+          [theme.breakpoints.down("xs")]: {
+            fontSize: "1.2rem",
+            paddingLeft: "0.5rem",
+          },
         },
       },
     },
