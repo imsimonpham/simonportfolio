@@ -106,6 +106,7 @@ const useStyles = makeStyles((theme) => {
       },
       cursor: "pointer",
       marginTop: "2rem",
+      fontSize: "0.8rem",
     },
     btnOverlay: {
       position: "absolute",
