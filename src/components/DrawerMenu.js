@@ -3,6 +3,7 @@ import { Drawer, List, Box, makeStyles } from "@material-ui/core";
 import { Colors } from "../data/Variables";
 import { MenuData } from "../data/MenuData";
 import { AiOutlineClose } from "react-icons/ai";
+import { Link } from "react-scroll";
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -31,6 +32,7 @@ const useStyles = makeStyles((theme) => {
       flexDirection: "column",
     },
     navLinks: {
+      cursor: "pointer",
       textDecoration: "none",
       marginBottom: "5rem",
       fontSize: "2rem",
@@ -80,8 +82,8 @@ const DrawerMenu = (props) => {
         <Box className={classes.navLinksContainer}>
           {MenuData.map((item, index) => {
             return (
-              <a
-                href={item.link}
+              <Link
+                to={item.link}
                 className={classes.navLinks}
                 key={index}
                 onClick={() => {
@@ -89,7 +91,7 @@ const DrawerMenu = (props) => {
                 }}
               >
                 {item.title}
-              </a>
+              </Link>
             );
           })}
         </Box>
