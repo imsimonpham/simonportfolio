@@ -92,7 +92,7 @@ function App({ props }) {
       <ScrollToTop />
       <GlobalStyle />
       <section className={classes.body}>
-        <ParticleBackground className={classes.particleBg} />
+        {/* <ParticleBackground className={classes.particleBg} /> */}
         <Hero openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
         <DrawerMenu openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
         <AboutMe />

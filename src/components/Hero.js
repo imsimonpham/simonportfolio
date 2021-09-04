@@ -98,6 +98,8 @@ const useStyles = makeStyles((theme) => {
       zIndex: "-1",
       transition: `all 0.5s ease-in-out`,
       backgroundSize: `200% 200%`,
+      top: "0",
+      left: "0",
     },
     btnBg1: {
       backgroundImage: `linear-gradient(to left, ${Colors.glass} 50%,${Colors.primary} 0)`,
