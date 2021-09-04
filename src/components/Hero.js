@@ -151,9 +151,7 @@ const Hero = (props) => {
                   .pauseFor(700)
                   .deleteAll()
                   .typeString(
-                    `<small >aesthetically pleasing</small>` +
-                      ` websites with` +
-                      `<small> personality.</small>`
+                    `aesthetically pleasing websites with personality.`
                   )
                   .start();
               }}
