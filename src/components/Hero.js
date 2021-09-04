@@ -148,10 +148,11 @@ const Hero = (props) => {
                   .typeString("websites")
                   .pauseFor(700)
                   .deleteAll()
+                  .typeString(`<small>aesthetically</small>`)
                   .typeString(
-                    `<small >aesthetically pleasing</small>` +
+                    `<span> pleasing</span>` +
                       ` websites with` +
-                      `<small > personality.</small>`
+                      `<small> personality.</small>`
                   )
                   .start();
               }}

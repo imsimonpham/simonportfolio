@@ -15,6 +15,8 @@ import Contact from "./components/Contact";
 import { Colors } from "./data/Variables";
 import Footer from "./components/Footer";
 import BackToTopRocket from "./components/BackToTopRocket";
+import ScrollToTop from "./components/ScrollToTop";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 const theme = createTheme({
   palette: {
@@ -67,8 +69,18 @@ function App({ props }) {
   const classes = useStyles();
   const [openDrawer, setOpenDrawer] = useState(false);
 
+  //scroll to top
+  const scrollToTop = () => {
+    scroll.scrollToTop();
+  };
+
+  let style = {
+    transition: "all 0.4s ease-in-out",
+  };
+
   return (
     <ThemeProvider theme={theme}>
+      <ScrollToTop />
       <CssBaseline />
       <GlobalStyle />
       <section className={classes.body}>
@@ -79,7 +91,16 @@ function App({ props }) {
         <Projects />
         <Contact />
         <Footer />
-        <BackToTopRocket />
+        <Link
+          to=""
+          style={style}
+          smooth={true}
+          offset={-70}
+          duration={1000}
+          onClick={scrollToTop}
+        >
+          <BackToTopRocket />
+        </Link>
       </section>
     </ThemeProvider>
   );
