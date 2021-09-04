@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => {
       backdropFilter: `blur(0.2rem)`,
       marginBottom: "5rem",
       maxWidth: "1500px",
+      position: "relative",
     },
     contactWrapper: {
       width: "90%",
@@ -123,6 +124,16 @@ const useStyles = makeStyles((theme) => {
     btnBg1: {
       backgroundImage: `linear-gradient(to left,  ${Colors.glass} 50%,${Colors.primary} 0)`,
     },
+    message: {
+      position: "absolute",
+      top: "2%",
+      fontSize: "1rem",
+      background: `linear-gradient(to right bottom, rgba(255,255,255, 0.4), rgba(255,255,255,0.3))`,
+      padding: `2%`,
+      borderRadius: "0.6rem",
+      color: `${Colors.lightGreen}`,
+      transition: `all 0.5s ease-in-out`,
+    },
   };
 });
 
@@ -162,8 +173,19 @@ const CssTextField = withStyles({
 
 const Contact = () => {
   const classes = useStyles();
-
+  const [safari, setSafari] = useState(false);
   const [btnHovered, setBtnHovered] = useState(false);
+  const [submitted, setSubmitted] = useState(0);
+  //detect safaro
+  const ua = navigator.userAgent.toLowerCase();
+  if (ua.indexOf("safari") != -1) {
+    if (ua.indexOf("chrome") > -1) {
+      // Chrome
+    } else {
+      // Safari
+      setSafari(true);
+    }
+  }
 
   let style = {
     hover: {
@@ -172,9 +194,12 @@ const Contact = () => {
     btn: {
       color: btnHovered ? `${Colors.white}` : `${Colors.primary}`,
     },
+    textFiled: { borderBottom: safari ? "none" : `` },
+    msg: {
+      opacity: submitted ? "1" : "0",
+    },
   };
 
-  const [submitted, setSubmitted] = useState(0);
   const submissionAlert = () => {
     setSubmitted(1);
     setTimeout(() => {
@@ -199,11 +224,14 @@ const Contact = () => {
           console.log(error.text);
         }
       );
-    // submissionAlert();
+    submissionAlert();
     e.target.reset();
   }
   return (
     <section className={classes.container} id="contact">
+      <p className={classes.message} style={style.msg}>
+        Thank you! Your message has been sent.
+      </p>
       <h1 className={classes.title}>
         Contact Me<span>.</span>
       </h1>
@@ -221,6 +249,7 @@ const Contact = () => {
             variant="filled"
             name="name"
             required
+            style={style.textFiled}
           />
           <CssTextField
             id="custom-css-standard-input"
@@ -229,6 +258,7 @@ const Contact = () => {
             variant="filled"
             name="email"
             required
+            style={style.textFiled}
           />
           <textarea
             className={classes.textArea}

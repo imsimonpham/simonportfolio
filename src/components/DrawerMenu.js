@@ -63,14 +63,7 @@ const useStyles = makeStyles((theme) => {
 
 const DrawerMenu = (props) => {
   const classes = useStyles();
-  var ua = navigator.userAgent.toLowerCase();
-  if (ua.indexOf("safari") != -1) {
-    if (ua.indexOf("chrome") > -1) {
-      alert("1"); // Chrome
-    } else {
-      alert("2"); // Safari
-    }
-  }
+
   return (
     <Drawer
       anchor="left"
