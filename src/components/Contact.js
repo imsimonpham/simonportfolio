@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => {
       alignItems: "center",
       justifyContent: "center",
       margin: `0 0 5rem 0`,
+      border: `1px solid blue`,
       [theme.breakpoints.down("sm")]: {
         flexDirection: "column",
         padding: `1rem 1rem`,
@@ -53,10 +54,17 @@ const useStyles = makeStyles((theme) => {
       },
     },
     form: {
-      width: "70%",
+      width: "600px",
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
+      border: `1px solid red`,
+      [theme.breakpoints.down("md")]: {
+        width: "500px",
+      },
+      [theme.breakpoints.down("sm")]: {
+        width: "80%",
+      },
       [theme.breakpoints.down("xs")]: {
         width: "95%",
       },
