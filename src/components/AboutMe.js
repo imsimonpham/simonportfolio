@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Box, makeStyles } from "@material-ui/core";
 import { Colors } from "../data/Variables";
 import ava1 from "../img/ava1.jpg";
 import { TechStackData } from "../data/TechStackData";
 import resume from "../resume/SimonResume.pdf";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -231,6 +235,26 @@ const AboutMe = () => {
   const classes = useStyles();
   const [btnHovered, setBtnHovered] = useState(false);
 
+  const avaRevealRef = useRef(null);
+  const introRef = useRef(null);
+
+  useEffect(() => {
+    gsap.fromTo(
+      avaRevealRef.current,
+      { autoAlpha: 0 },
+      {
+        duration: 1,
+        autoAlpha: 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: avaRevealRef.current,
+          start: "top center+=250",
+          toggleActions: "play reverse play",
+        },
+      }
+    );
+  }, []);
+
   let style = {
     hover: {
       backgroundPosition: btnHovered ? `left` : `right`,
@@ -247,8 +271,8 @@ const AboutMe = () => {
       <section className={classes.aboutContentWrapper}>
         <div className={classes.imgSection}>
           <div className={classes.card}>
-            <div className={classes.imgContainer}>
-              <img src={ava1} alt="ava" />
+            <div className={classes.imgContainer} ref={avaRevealRef}>
+              <img src={ava1} alt="profile picture" />
             </div>
             <div className={classes.basicInfo}>
               <p>
@@ -264,7 +288,7 @@ const AboutMe = () => {
           </div>
         </div>
         <div className={classes.infoSection}>
-          <div className={classes.infoContainer}>
+          <div className={classes.infoContainer} ref={introRef}>
             <p>
               Hi, my name is Simon, and I'm a self-taught Web Developer. Over
               the past year, coding has developed into a passion of mine,

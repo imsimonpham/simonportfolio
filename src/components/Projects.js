@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   Box,
   makeStyles,
@@ -11,6 +11,10 @@ import {
 import { Colors } from "../data/Variables";
 import { ProjectData } from "../data/ProjectData";
 import { AiOutlineClose } from "react-icons/ai";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -203,6 +207,7 @@ const useStyles = makeStyles((theme) => {
     },
     projectIntro: {
       marginBottom: "0.5rem",
+      fontWeight: "600",
     },
     techUsedWrapper: {
       display: "flex",
@@ -245,6 +250,36 @@ const Projects = (props) => {
     setOpen(false);
   };
 
+  //gsap amimation
+  const revealRefs = useRef([]);
+  revealRefs.current = [];
+
+  const addToRefs = (item) => {
+    if (item && !revealRefs.current.includes(item)) {
+      revealRefs.current.push(item);
+    }
+  };
+
+  useEffect(() => {
+    revealRefs.current.forEach((item, index) => {
+      gsap.fromTo(
+        item,
+        { autoAlpha: 0 },
+        {
+          duration: 0.7,
+          autoAlpha: 1,
+          ease: "none",
+          scrollTrigger: {
+            id: `project-${index + 1}`,
+            trigger: item,
+            start: "top center+=450",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    });
+  }, []);
+
   return (
     <Box className={classes.container} id="projects">
       <h1 className={classes.title}>
@@ -253,7 +288,7 @@ const Projects = (props) => {
       <section className={classes.aboutContentWrapper}>
         {ProjectData.map((item, index) => {
           return (
-            <Box key={index} className={classes.singleProject}>
+            <Box key={index} className={classes.singleProject} ref={addToRefs}>
               <div className={classes.singleProjectOverlay}>
                 <h1
                   onClick={() => {
@@ -304,7 +339,9 @@ const Projects = (props) => {
                     <p>Source Code</p>
                   </a>
                 </div>
-                <div className={classes.projectIntro}></div>
+                <div className={classes.projectIntro}>
+                  {ProjectData[id].text}
+                </div>
                 <div className={classes.techUsedWrapper}>
                   <h3>Technologies used: </h3>
                   <div className={classes.techList}>
