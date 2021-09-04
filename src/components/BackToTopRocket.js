@@ -19,9 +19,6 @@ const useStyles = makeStyles((theme) => {
 
 function RocketIcon(props) {
   const classes = useStyles();
-  const handleClick = () => {
-    window.scrollTo(0, 0);
-  };
 
   const [isScrolledDown, setIsScrolledDown] = useState(false);
 
@@ -57,7 +54,6 @@ function RocketIcon(props) {
       style={style}
       {...props}
       className={classes.rocket}
-      onClick={handleClick}
     >
       <style>
         {

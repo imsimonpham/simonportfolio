@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   createTheme,
   ThemeProvider,
@@ -16,7 +16,9 @@ import { Colors } from "./data/Variables";
 import Footer from "./components/Footer";
 import BackToTopRocket from "./components/BackToTopRocket";
 import ScrollToTop from "./components/ScrollToTop";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { animateScroll as scroll } from "react-scroll";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const theme = createTheme({
   palette: {
@@ -62,6 +64,11 @@ const useStyles = makeStyles((theme) => {
       alignItems: "center",
       position: "relative",
     },
+    testing: {
+      position: "fixed",
+      right: "5%",
+      bottom: "2%",
+    },
   };
 });
 
@@ -74,14 +81,15 @@ function App({ props }) {
     scroll.scrollToTop();
   };
 
-  let style = {
-    transition: "all 0.4s ease-in-out",
-  };
+  //animation
+  useEffect(() => {
+    Aos.init({});
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
-      <ScrollToTop />
       <CssBaseline />
+      <ScrollToTop />
       <GlobalStyle />
       <section className={classes.body}>
         <ParticleBackground />
@@ -91,16 +99,15 @@ function App({ props }) {
         <Projects />
         <Contact />
         <Footer />
-        <Link
-          to=""
-          style={style}
+        <a
+          href="#projects"
           smooth={true}
           offset={-70}
-          duration={1000}
+          duration={500}
           onClick={scrollToTop}
         >
           <BackToTopRocket />
-        </Link>
+        </a>
       </section>
     </ThemeProvider>
   );

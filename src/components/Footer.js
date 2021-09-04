@@ -1,6 +1,7 @@
 import React from "react";
-import { Box, makeStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 import { Colors } from "../data/Variables";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -29,6 +30,7 @@ const useStyles = makeStyles((theme) => {
         [theme.breakpoints.down("xs")]: {
           display: "none",
         },
+        cursor: "pointer",
       },
     },
     name: {
@@ -53,11 +55,19 @@ const Footer = () => {
   const classes = useStyles();
   return (
     <footer className={classes.footer}>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
+      <Link to="home" smooth={true} offset={-70} duration={500}>
+        Home
+      </Link>
+      <Link to="about" smooth={true} offset={-70} duration={500}>
+        About
+      </Link>
       <div className={classes.name}>{currentYear} &copy; Simon Pham</div>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+      <Link to="projects" smooth={true} offset={-70} duration={500}>
+        Projects
+      </Link>
+      <Link to="contact" smooth={true} offset={-70} duration={500}>
+        Contact
+      </Link>
     </footer>
   );
 };

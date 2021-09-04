@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Navbar from "./Navbar";
 import { Colors } from "../data/Variables";
 import Typewritter from "typewriter-effect";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -86,6 +87,7 @@ const useStyles = makeStyles((theme) => {
       [theme.breakpoints.down("xs")]: {
         width: "100%",
       },
+      cursor: "pointer",
     },
     btnOverlay: {
       position: "absolute",
@@ -148,9 +150,8 @@ const Hero = (props) => {
                   .typeString("websites")
                   .pauseFor(700)
                   .deleteAll()
-                  .typeString(`<small>aesthetically</small>`)
                   .typeString(
-                    `<span> pleasing</span>` +
+                    `<small >aesthetically pleasing</small>` +
                       ` websites with` +
                       `<small> personality.</small>`
                   )
@@ -161,8 +162,11 @@ const Hero = (props) => {
         </h1>
 
         <div className={classes.btnContainer}>
-          <a
-            href="#projects"
+          <Link
+            to="projects"
+            smooth={true}
+            offset={-70}
+            duration={500}
             className={classes.btn}
             style={style.btn}
             onMouseEnter={() => {
@@ -177,10 +181,13 @@ const Hero = (props) => {
               style={style.hover}
               className={`${classes.btnOverlay} ${classes.btnBg1}`}
             ></span>
-          </a>
+          </Link>
 
-          <a
-            href="#contact"
+          <Link
+            to="contact"
+            smooth={true}
+            offset={-70}
+            duration={500}
             className={classes.btn}
             style={style.btn2}
             onMouseEnter={() => {
@@ -195,7 +202,7 @@ const Hero = (props) => {
               style={style.hover2}
               className={`${classes.btnOverlay} ${classes.btnBg2}`}
             ></span>
-          </a>
+          </Link>
         </div>
       </Box>
     </Box>
