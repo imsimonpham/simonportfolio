@@ -25,7 +25,6 @@ const useStyles = makeStyles((theme) => {
       alignItems: "center",
       justifyContent: "center",
       margin: `0 0 5rem 0`,
-      border: `1px solid blue`,
       [theme.breakpoints.down("sm")]: {
         flexDirection: "column",
         padding: `1rem 1rem`,
@@ -58,7 +57,7 @@ const useStyles = makeStyles((theme) => {
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
-      border: `1px solid red`,
+
       [theme.breakpoints.down("md")]: {
         width: "500px",
       },
@@ -181,19 +180,8 @@ const CssTextField = withStyles({
 
 const Contact = () => {
   const classes = useStyles();
-  // const [safari, setSafari] = useState(false);
   const [btnHovered, setBtnHovered] = useState(false);
   const [submitted, setSubmitted] = useState(0);
-  //detect safaro
-  const ua = navigator.userAgent.toLowerCase();
-  // if (ua.indexOf("safari") != -1) {
-  //   if (ua.indexOf("chrome") > -1) {
-  //     // Chrome
-  //   } else {
-  //     // Safari
-  //     setSafari(true);
-  //   }
-  // }
 
   let style = {
     hover: {
@@ -202,7 +190,6 @@ const Contact = () => {
     btn: {
       color: btnHovered ? `${Colors.white}` : `${Colors.primary}`,
     },
-    // textFiled: { borderBottom: safari ? "none" : `` },
     msg: {
       opacity: submitted ? "1" : "0",
     },
@@ -266,7 +253,6 @@ const Contact = () => {
             variant="filled"
             name="email"
             required
-            // style={style.textFiled}
           />
           <textarea
             className={classes.textArea}

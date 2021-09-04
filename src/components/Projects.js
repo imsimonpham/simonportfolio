@@ -266,7 +266,7 @@ const Projects = (props) => {
         item,
         { autoAlpha: 0 },
         {
-          duration: 0.7,
+          duration: 0.5,
           autoAlpha: 1,
           ease: "none",
           scrollTrigger: {

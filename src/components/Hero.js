@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => {
           fontSize: "1.2rem",
           paddingLeft: "0.5rem",
         },
-        "& small": {
+        "& span": {
           color: `${Colors.primary}`,
           textShadow: `1px 1px ${Colors.black}`,
           fontSize: "3.2rem",
@@ -141,24 +141,9 @@ const Hero = (props) => {
       />
       <Box className={classes.introTextContainer}>
         <h1>
-          Hello, World! I'm Simon, a Web Developer. I love building{" "}
-          <div className={classes.typewritterContainer}>
-            <Typewritter
-              options={{
-                delay: 80,
-              }}
-              onInit={(typewritter) => {
-                typewritter
-                  .typeString("websites")
-                  .pauseFor(700)
-                  .deleteAll()
-                  .typeString(
-                    `aesthetically pleasing websites with personality.`
-                  )
-                  .start();
-              }}
-            />
-          </div>
+          Hello, World! I'm Simon, a Web Developer. I love building
+          <span> aesthetically pleasing</span> websites with{" "}
+          <span>personality</span>.
         </h1>
 
         <div className={classes.btnContainer}>
