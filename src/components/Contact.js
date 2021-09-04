@@ -173,19 +173,19 @@ const CssTextField = withStyles({
 
 const Contact = () => {
   const classes = useStyles();
-  const [safari, setSafari] = useState(false);
+  // const [safari, setSafari] = useState(false);
   const [btnHovered, setBtnHovered] = useState(false);
   const [submitted, setSubmitted] = useState(0);
   //detect safaro
   const ua = navigator.userAgent.toLowerCase();
-  if (ua.indexOf("safari") != -1) {
-    if (ua.indexOf("chrome") > -1) {
-      // Chrome
-    } else {
-      // Safari
-      setSafari(true);
-    }
-  }
+  // if (ua.indexOf("safari") != -1) {
+  //   if (ua.indexOf("chrome") > -1) {
+  //     // Chrome
+  //   } else {
+  //     // Safari
+  //     setSafari(true);
+  //   }
+  // }
 
   let style = {
     hover: {
@@ -194,7 +194,7 @@ const Contact = () => {
     btn: {
       color: btnHovered ? `${Colors.white}` : `${Colors.primary}`,
     },
-    textFiled: { borderBottom: safari ? "none" : `` },
+    // textFiled: { borderBottom: safari ? "none" : `` },
     msg: {
       opacity: submitted ? "1" : "0",
     },
@@ -258,7 +258,7 @@ const Contact = () => {
             variant="filled"
             name="email"
             required
-            style={style.textFiled}
+            // style={style.textFiled}
           />
           <textarea
             className={classes.textArea}
