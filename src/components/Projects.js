@@ -141,6 +141,10 @@ const useStyles = makeStyles((theme) => {
         height: "90%",
         padding: `5rem 0`,
       },
+      [theme.breakpoints.down("xs")]: {
+        width: "95%",
+        padding: `3rem 0`,
+      },
     },
     closeIcon: {
       fontSize: "1.5rem",
