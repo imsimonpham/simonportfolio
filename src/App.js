@@ -64,10 +64,10 @@ const useStyles = makeStyles((theme) => {
       alignItems: "center",
       position: "relative",
     },
-    testing: {
-      position: "fixed",
-      right: "5%",
-      bottom: "2%",
+    particleBg: {
+      [theme.breakpoints.down("sm")]: {
+        display: "none",
+      },
     },
   };
 });
@@ -92,7 +92,7 @@ function App({ props }) {
       <ScrollToTop />
       <GlobalStyle />
       <section className={classes.body}>
-        {/* <ParticleBackground /> */}
+        <ParticleBackground className={classes.particleBg} />
         <Hero openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
         <DrawerMenu openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
         <AboutMe />
