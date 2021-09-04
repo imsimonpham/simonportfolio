@@ -4,10 +4,10 @@ const particlesConfig = {
   fps_limit: 30,
   particles: {
     number: {
-      value: 150,
+      value: 120,
       density: {
         enable: true,
-        value_area: 800,
+        value_area: 2000,
       },
     },
     color: {
@@ -49,7 +49,7 @@ const particlesConfig = {
       anim: {
         enable: false,
         speed: 4,
-        size_min: 0.3,
+        size_min: 3,
         sync: false,
       },
     },
