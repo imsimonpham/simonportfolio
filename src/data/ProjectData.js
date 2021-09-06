@@ -55,7 +55,7 @@ export const ProjectData = [
   {
     title: "The Mont Blanc",
     linkDemo: "https://imsimonpham.github.io/themontblanc/",
-    linkGithub: "https://github.com/imsimonpham/finding-a-recipe",
+    linkGithub: "https://github.com/imsimonpham/themontblanc",
     alt: "project image",
     text: `The Mont Blanc is an e-commerce website that sells luxury accessories for men. Everything from structure, styling to DOM manipulation was built from scratch using just HTML, CSS and Vanilla Javascript. Items in user shopping carts are saved in local storage so it's convenient for users' experience.`,
     img: themontblanc,
