@@ -173,6 +173,7 @@ const useStyles = makeStyles((theme) => {
         width: "100%",
         height: "100%",
         objectFit: "full",
+        padding: "0",
       },
     },
     modalContent: {
