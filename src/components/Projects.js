@@ -129,7 +129,7 @@ const useStyles = makeStyles((theme) => {
     paper: {
       backgroundColor: theme.palette.background.paper,
       boxShadow: theme.shadows[6],
-      height: "95%",
+      height: "95vh",
       width: "765px",
       position: "relative",
       outline: "none",
@@ -166,7 +166,7 @@ const useStyles = makeStyles((theme) => {
 
     modalImgWrapper: {
       width: "80%",
-      height: "55vh",
+      height: "auto",
       border: `10px solid ${Colors.primary}`,
       marginBottom: "2rem",
       "& img": {
