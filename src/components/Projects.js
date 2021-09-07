@@ -129,13 +129,12 @@ const useStyles = makeStyles((theme) => {
     paper: {
       backgroundColor: theme.palette.background.paper,
       boxShadow: theme.shadows[6],
-      height: "100%",
+      height: "95%",
       width: "765px",
       position: "relative",
       outline: "none",
       display: "flex",
       flexDirection: "column",
-      justifyContent: "center",
       alignItems: "center",
       overflowY: "scroll",
       padding: `5rem 0`,
@@ -143,7 +142,7 @@ const useStyles = makeStyles((theme) => {
       margin: "1rem 0",
       [theme.breakpoints.down("sm")]: {
         width: "80%",
-        height: "95%",
+        overflowY: "scroll",
       },
       [theme.breakpoints.down("xs")]: {
         width: "95%",
@@ -167,18 +166,15 @@ const useStyles = makeStyles((theme) => {
 
     modalImgWrapper: {
       width: "80%",
-      height: "80%",
       border: `10px solid ${Colors.primary}`,
       marginBottom: "2rem",
     },
     modalContent: {
       border: `1px solid red`,
       width: "80%",
-      height: "800px",
     },
     modalContentWrapper: {
       width: "80%",
-      height: "80%",
       "& h2": {
         margin: `0.2rem 0`,
       },
