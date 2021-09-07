@@ -137,13 +137,13 @@ const useStyles = makeStyles((theme) => {
       flexDirection: "column",
       justifyContent: "center",
       alignItems: "center",
-      overflowY: "auto",
+      overflowY: "scroll",
       padding: `5rem 0`,
       overflowX: "hidden",
+      margin: "1rem 0",
       [theme.breakpoints.down("sm")]: {
         width: "80%",
-        height: "90%",
-        padding: `5rem 0`,
+        height: "95%",
       },
       [theme.breakpoints.down("xs")]: {
         width: "95%",
