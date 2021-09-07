@@ -166,9 +166,14 @@ const useStyles = makeStyles((theme) => {
 
     modalImgWrapper: {
       width: "80%",
-      height: "80%",
+      height: "55vh",
       border: `10px solid ${Colors.primary}`,
       marginBottom: "2rem",
+      "& img": {
+        width: "100%",
+        height: "100%",
+        objectFit: "full",
+      },
     },
     modalContent: {
       border: `1px solid red`,
