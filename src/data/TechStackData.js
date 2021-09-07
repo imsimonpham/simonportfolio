@@ -2,7 +2,7 @@ export const TechStackData = [
   { cat: "Languages", techList: ["Javascript", "SASS", "CSS3", "HTML5", "C"] },
   {
     cat: "Frontend",
-    techList: ["React", "React-Bootstrap", "Material-UI", "GSAP"],
+    techList: ["React", "Redux Toolkit", "React-Bootstrap", "Material-UI", "GSAP"],
   },
   {
     cat: "CMS",

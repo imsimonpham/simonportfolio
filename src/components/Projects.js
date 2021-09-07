@@ -129,7 +129,7 @@ const useStyles = makeStyles((theme) => {
     paper: {
       backgroundColor: theme.palette.background.paper,
       boxShadow: theme.shadows[6],
-      height: "auto",
+      height: "100%",
       width: "765px",
       position: "relative",
       outline: "none",

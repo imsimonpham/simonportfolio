@@ -3,7 +3,7 @@ import { Box, makeStyles } from "@material-ui/core";
 import { Colors } from "../data/Variables";
 import ava1 from "../img/ava1.jpg";
 import { TechStackData } from "../data/TechStackData";
-import resume from "../resume/SimonResume.pdf";
+import resume from "../resume/SimonPhamResume.pdf";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -318,7 +318,7 @@ const AboutMe = () => {
           </div>
           <a
             href={resume}
-            download="Simon's resume"
+            download="Simon Pham's resume"
             className={classes.btn}
             style={style.btn}
             onMouseEnter={() => {
