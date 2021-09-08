@@ -146,6 +146,7 @@ const useStyles = makeStyles((theme) => {
       },
       [theme.breakpoints.down("xs")]: {
         width: "95%",
+        height: "90vh",
         padding: `3rem 0`,
       },
     },
