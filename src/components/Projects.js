@@ -171,7 +171,7 @@ const useStyles = makeStyles((theme) => {
       "& img": {
         width: "100%",
         height: "100%",
-        objectFit: "full",
+        objectFit: "fill",
         padding: "0",
       },
     },
