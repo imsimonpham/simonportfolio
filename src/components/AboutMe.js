@@ -290,7 +290,7 @@ const AboutMe = () => {
         <div className={classes.infoSection}>
           <div className={classes.infoContainer} ref={introRef}>
             <p>
-              Hi, my name is Simon, and I'm Front-end Web Developer. Over the
+              Hi, my name is Simon, and I'm a Front-end Web Developer. Over the
               past year, coding has developed into a passion of mine,
               specifically, in the field of web development. I have dedicated my
               time to gaining proficiency in web technologies, especially
