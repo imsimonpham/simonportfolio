@@ -276,7 +276,7 @@ const AboutMe = () => {
             </div>
             <div className={classes.basicInfo}>
               <p>
-                <b>Front-end Web Developer</b>
+                <b>Front-end Web Developer | React Enthusiast</b>
               </p>
               <p>
                 <b>
