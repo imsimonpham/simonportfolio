@@ -276,7 +276,7 @@ const AboutMe = () => {
             </div>
             <div className={classes.basicInfo}>
               <p>
-                <b>Front-end Web Developer | React Enthusiast</b>
+                <b>Frontend Developer</b>
               </p>
               <p>
                 <b>
@@ -290,11 +290,12 @@ const AboutMe = () => {
         <div className={classes.infoSection}>
           <div className={classes.infoContainer} ref={introRef}>
             <p>
-              Hi, my name is Simon, and I'm an aspiring Front-end Web Developer.
-              Over the past year, coding has developed into a passion of mine,
-              specifically, in the field of web development. I have dedicated my
-              time to gaining proficiency in web technologies, especially
-              front-end ones.
+              Hi, my name is Simon, and I'm an aspiring Frontend Developer. Over
+              the past year, programming has developed into a passion of mine,
+              specifically, in the field of websites and web applications
+              development. I have dedicated my time to gaining proficiency in
+              frontend technologies and enjoy building aesthetically pleasing
+              websites and web applications.
             </p>
             <p>
               Also, I consider myself a problem solver who seeks to bridge the
@@ -316,7 +317,7 @@ const AboutMe = () => {
               );
             })}
           </div>
-          <a
+          {/* <a
             href={resume}
             download="Simon Pham's resume"
             className={classes.btn}
@@ -333,7 +334,7 @@ const AboutMe = () => {
               style={style.hover}
               className={`${classes.btnOverlay} ${classes.btnBg1}`}
             ></span>
-          </a>
+          </a> */}
         </div>
       </section>
     </Box>

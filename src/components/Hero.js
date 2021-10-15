@@ -141,9 +141,8 @@ const Hero = (props) => {
       />
       <Box className={classes.introTextContainer}>
         <h1>
-          Hello, World! I'm Simon, a Web Developer. I love building
-          <span> aesthetically pleasing</span> websites with{" "}
-          <span>personality</span>.
+          Hello, World! I'm Simon, a Frontend Developer. I love building
+          <span> aesthetically pleasing</span> websites and web applications.
         </h1>
 
         <div className={classes.btnContainer}>
